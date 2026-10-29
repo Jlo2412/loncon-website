@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
@@ -19,7 +20,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>document.documentElement.classList.add('js');</script>
@@ -76,10 +76,9 @@ img{max-width:100%;}
   text-decoration:none;
   transition:top .2s;
 }
-
 .skip-link:focus{top:16px;}
 
-/* NAV */
+/* Navigation */
 nav{
   position:fixed;
   top:0;
@@ -90,7 +89,7 @@ nav{
   align-items:center;
   gap:20px;
   z-index:1000;
-  background:rgba(10,10,10,0.4);
+  background:rgba(10,10,10,.4);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
@@ -98,7 +97,7 @@ nav{
 }
 
 nav.scrolled{
-  background:rgba(10,10,10,0.88);
+  background:rgba(10,10,10,.88);
   padding:12px 6%;
 }
 
@@ -110,10 +109,9 @@ nav.scrolled{
   text-decoration:none;
   white-space:nowrap;
 }
-
 .logo span{color:var(--accent);}
 
-/* BUTTONS */
+/* Buttons */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -136,7 +134,7 @@ nav.scrolled{
 .btn:hover{
   transform:translateY(-3px);
   background:var(--accent2);
-  box-shadow:0 18px 36px rgba(0,0,0,0.38);
+  box-shadow:0 18px 36px rgba(0,0,0,.38);
 }
 
 .btn:focus-visible{
@@ -158,20 +156,7 @@ nav.scrolled{
   white-space:nowrap;
 }
 
-.btn-secondary{
-  background:transparent;
-  border:1px solid var(--border);
-  font-size:.85rem;
-  padding:10px 18px;
-}
-
-.btn-secondary:hover{
-  background:rgba(255,255,255,.06);
-  border-color:var(--accent);
-  box-shadow:none;
-}
-
-/* HERO */
+/* Hero */
 .hero{
   min-height:100vh;
   min-height:100svh;
@@ -207,7 +192,7 @@ nav.scrolled{
   text-wrap:pretty;
 }
 
-/* TRUST STRIP */
+/* Trust strip */
 .trust{
   display:flex;
   justify-content:center;
@@ -237,7 +222,7 @@ nav.scrolled{
   transform:translateY(-50%);
 }
 
-/* SECTIONS */
+/* Sections */
 .section{
   padding:100px 6%;
   max-width:1200px;
@@ -264,7 +249,7 @@ nav.scrolled{
 #main{scroll-margin-top:80px;}
 #quote{scroll-margin-top:86px;}
 
-/* SERVICE CARDS */
+/* Service cards */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -299,15 +284,15 @@ nav.scrolled{
   line-height:1.65;
 }
 
-@media(hover:hover){
+@media (hover:hover){
   .card:hover{
     transform:translateY(-6px);
     border-color:var(--accent);
-    background:rgba(255,255,255,0.06);
+    background:rgba(255,255,255,.06);
   }
 }
 
-/* FORM */
+/* Quote form */
 .form{
   max-width:680px;
   margin:auto;
@@ -408,170 +393,7 @@ input:-webkit-autofill:focus{
   transition:background-color 9999s ease-in-out 0s;
 }
 
-/* PHOTO UPLOAD */
-.upload{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:3px;
-  padding:22px 16px;
-  border:1px dashed rgba(255,255,255,.2);
-  border-radius:12px;
-  background:rgba(255,255,255,.02);
-  text-align:center;
-  cursor:pointer;
-  transition:border-color .2s,background .2s;
-}
-
-.upload:hover,.upload.dragover{
-  border-color:var(--accent);
-  background:rgba(230,126,34,.06);
-}
-
-.upload:focus-within{
-  outline:2px solid var(--accent);
-  outline-offset:3px;
-}
-
-.file-input{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0;
-}
-
-.upload-icon{
-  font-size:1.35rem;
-  color:var(--accent);
-  margin-bottom:2px;
-  pointer-events:none;
-}
-
-.upload-title{
-  font-size:.94rem;
-  font-weight:600;
-  pointer-events:none;
-}
-
-.upload-hint{
-  font-size:.78rem;
-  color:var(--muted);
-  line-height:1.5;
-  pointer-events:none;
-}
-
-.file-list{
-  list-style:none;
-  display:grid;
-  gap:8px;
-  margin-top:10px;
-}
-
-.file-list[hidden]{display:none;}
-
-.file-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:8px 10px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  background:rgba(255,255,255,.03);
-}
-
-.file-thumb,.file-icon{
-  width:38px;
-  height:38px;
-  border-radius:7px;
-  flex:0 0 auto;
-  background:#1a1a1c;
-}
-
-.file-thumb{object-fit:cover;}
-
-.file-icon{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--accent);
-  font-size:.95rem;
-}
-
-.file-meta{
-  min-width:0;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-}
-
-.file-name{
-  font-size:.8rem;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.file-size{
-  font-size:.72rem;
-  color:var(--muted);
-}
-
-.file-remove{
-  width:32px;
-  height:32px;
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:none;
-  border-radius:50%;
-  background:transparent;
-  color:var(--muted);
-  font-size:1.05rem;
-  cursor:pointer;
-  transition:color .2s,background .2s;
-}
-
-.file-remove:hover{
-  color:#fff;
-  background:rgba(255,255,255,.08);
-}
-
-.file-remove:focus-visible{
-  outline:2px solid var(--accent);
-  outline-offset:1px;
-}
-
-.field-error{
-  color:var(--error);
-  font-size:.78rem;
-  line-height:1.5;
-  margin-top:6px;
-}
-
-.field-error:empty{display:none;}
-
-.form-note{
-  color:var(--muted);
-  font-size:.76rem;
-  line-height:1.55;
-  margin-top:12px;
-  text-align:center;
-}
-
-.form .btn{
-  width:100%;
-  margin-top:6px;
-}
-
-/* FORM ALERTS AND SUCCESS */
+/* Form error and success messages */
 .form-alert{
   display:flex;
   flex-direction:column;
@@ -645,7 +467,7 @@ input:-webkit-autofill:focus{
   padding:0 7px;
 }
 
-/* FOOTER */
+/* Footer */
 footer{
   text-align:center;
   padding:42px 6%;
@@ -664,17 +486,7 @@ footer{
 
 .footer-meta{font-size:.76rem;}
 
-footer a{
-  color:inherit;
-  text-decoration:none;
-}
-
-footer a:hover{
-  color:var(--accent);
-  text-decoration:underline;
-}
-
-/* ANIMATION */
+/* Reveal animation */
 .js .reveal{
   opacity:0;
   transform:translateY(25px);
@@ -686,7 +498,7 @@ footer a:hover{
   transform:none;
 }
 
-/* RESPONSIVE */
+/* Mobile layout */
 @media(max-width:768px){
   nav{padding:14px 5%;}
   nav.scrolled{padding:10px 5%;}
@@ -738,40 +550,17 @@ footer a:hover{
   .btn:hover{transform:none;}
 }
 </style>
-
-<noscript>
-<style>
-  .file-input{
-    position:static !important;
-    width:100% !important;
-    height:auto !important;
-    padding:12px !important;
-    margin:8px 0 0 !important;
-    clip:auto !important;
-    overflow:visible !important;
-    white-space:normal !important;
-    border:1px solid rgba(255,255,255,.08) !important;
-  }
-
-  .upload-hint{
-    display:block;
-    margin-top:8px;
-  }
-</style>
-</noscript>
 </head>
 
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- NAV -->
 <nav id="nav" aria-label="Main navigation">
   <a class="logo" href="#top" aria-label="LonCon home">Lon<span>Con</span></a>
   <a class="btn btn-nav" href="#quote">Request Quote</a>
 </nav>
 
-<!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-content">
     <h1>Residential Construction &amp; Property Improvements</h1>
@@ -782,7 +571,6 @@ footer a:hover{
 
 <main id="main">
 
-  <!-- TRUST -->
   <div class="trust" aria-label="Why choose LonCon">
     <div>QBCC Licensed</div>
     <div>Fully Insured</div>
@@ -790,7 +578,6 @@ footer a:hover{
     <div>Brisbane Based</div>
   </div>
 
-  <!-- SERVICES -->
   <section class="section reveal" id="services" aria-labelledby="services-title">
     <h2 class="title" id="services-title">What We Do</h2>
     <p class="section-intro">From a small repair to a full renovation, we take on residential work of all sizes across Brisbane.</p>
@@ -816,22 +603,19 @@ footer a:hover{
     </div>
   </section>
 
-  <!-- QUOTE -->
   <section class="section reveal" id="quote" aria-labelledby="quote-title">
     <h2 class="title" id="quote-title">Request a Quote</h2>
-    <p class="section-intro">Tell us a little about the job and add photos if you have them. We’ll get back to you to talk through the next steps.</p>
+    <p class="section-intro">Tell us a little about the job and we’ll get back to you to talk through the next steps.</p>
 
-    <!-- Formspree endpoint: https://formspree.io/f/xanbzwla. Set and verify admin@loncon.com.au as the notification recipient in the Formspree dashboard. Photo attachments require file uploads to be enabled for this form; if unavailable, the form offers a text-only retry. -->
+    <!-- Check that admin@loncon.com.au is the recipient in Formspree. -->
     <div class="form">
       <form id="quote-form"
             action="https://formspree.io/f/xanbzwla"
             method="POST"
-            enctype="multipart/form-data"
             aria-describedby="form-note">
 
         <div class="form-alert" id="form-alert" role="alert" tabindex="-1" hidden>
           <p id="form-alert-text"></p>
-          <button type="button" class="btn btn-secondary" id="send-without-photos" hidden>Send without photos</button>
         </div>
 
         <div class="form-grid">
@@ -870,29 +654,9 @@ footer a:hover{
               <option value="3+ months">3+ months</option>
             </select>
           </div>
-
-          <div class="field field-full">
-            <label for="photos">Photos <span class="optional">Optional</span></label>
-
-            <label class="upload" id="upload" for="photos">
-              <input class="file-input"
-                     type="file"
-                     id="photos"
-                     name="photos"
-                     accept="image/*"
-                     multiple
-                     aria-describedby="photos-help">
-              <span class="upload-icon" aria-hidden="true"><i class="fa-solid fa-camera"></i></span>
-              <span class="upload-title">Add photos</span>
-              <span class="upload-hint" id="photos-help">Up to 5 photos, 10MB each (30MB total). Photos help us quote accurately.</span>
-            </label>
-
-            <ul class="file-list" id="photo-list" aria-label="Selected photos" hidden></ul>
-            <p class="field-error" id="photos-error" role="alert"></p>
-          </div>
         </div>
 
-        <!-- Spam prevention -->
+        <!-- Spam protection: leave this field empty. -->
         <div class="sr-only" aria-hidden="true">
           <label for="_gotcha">Leave this field empty</label>
           <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
@@ -904,7 +668,7 @@ footer a:hover{
           <span id="submit-label">Send Enquiry</span>
         </button>
 
-        <p class="form-note" id="form-note">We’ll only use your details and photos to respond to your enquiry.</p>
+        <p class="form-note" id="form-note">We’ll only use your details to respond to your enquiry.</p>
       </form>
 
       <div class="form-success" id="form-success" role="status" tabindex="-1" hidden>
@@ -919,11 +683,10 @@ footer a:hover{
 
 </main>
 
-<!-- FOOTER -->
 <footer>
   <p class="footer-brand">LonCon Construction</p>
   <p>Brisbane, QLD · QBCC Licensed · Fully Insured</p>
-  <p><a href="mailto:admin@loncon.com.au">admin@loncon.com.au</a></p>
+  <p><a href="mailto:admin@loncon.com.au" style="color:inherit;text-decoration:none;">admin@loncon.com.au</a></p>
   <p class="footer-meta">© 2026 LonCon Construction · No job too small.</p>
 </footer>
 
@@ -931,19 +694,19 @@ footer a:hover{
 (function () {
   'use strict';
 
-  /* NAV SCROLL STATE */
+  // Navigation background on scroll
   var nav = document.getElementById('nav');
 
   if (nav) {
-    var onScroll = function () {
+    function updateNav() {
       nav.classList.toggle('scrolled', window.scrollY > 50);
-    };
+    }
 
-    window.addEventListener('scroll', onScroll, { passive:true });
-    onScroll();
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
   }
 
-  /* REVEAL ON SCROLL */
+  // Reveal sections as they enter the screen
   var revealEls = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
@@ -954,7 +717,7 @@ footer a:hover{
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold:0.08 });
+    }, { threshold: 0.08 });
 
     revealEls.forEach(function (el) {
       observer.observe(el);
@@ -965,388 +728,86 @@ footer a:hover{
     });
   }
 
-  /* QUOTE FORM */
+  // Quote enquiry form — no file uploads
   var form = document.getElementById('quote-form');
   if (!form) return;
 
-  var photosInput = document.getElementById('photos');
-  var photoList = document.getElementById('photo-list');
-  var photosError = document.getElementById('photos-error');
-  var upload = document.getElementById('upload');
   var alertBox = document.getElementById('form-alert');
   var alertText = document.getElementById('form-alert-text');
-  var sendWithoutBtn = document.getElementById('send-without-photos');
   var successBox = document.getElementById('form-success');
   var submitBtn = document.getElementById('submit-btn');
   var submitLabel = document.getElementById('submit-label');
 
-  var MAX_FILES = 5;
-  var MAX_FILE_BYTES = 10 * 1024 * 1024;
-  var MAX_TOTAL_BYTES = 30 * 1024 * 1024;
-  var selectedFiles = [];
   var submitting = false;
 
-  function formatSize(bytes) {
-    if (bytes < 1024 * 1024) {
-      return Math.max(1, Math.round(bytes / 1024)) + ' KB';
-    }
-
-    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-  }
-
-  function isSupportedImage(file) {
-    var type = (file.type || '').toLowerCase();
-
-    if (type === 'image/svg+xml') return false;
-    if (type && type.indexOf('image/') === 0) return true;
-
-    return /\.(jpe?g|png|webp|gif|heic|heif|avif)$/i.test(file.name || '');
-  }
-
-  function totalBytes() {
-    return selectedFiles.reduce(function (sum, file) {
-      return sum + file.size;
-    }, 0);
-  }
-
-  function showPhotoError(message) {
-    photosError.textContent = message || '';
-  }
-
-  function clearPhotoError() {
-    showPhotoError('');
-  }
-
-  function renderFiles() {
-    photoList.textContent = '';
-
-    selectedFiles.forEach(function (file, index) {
-      var item = document.createElement('li');
-      item.className = 'file-item';
-
-      var preview;
-
-      if (file.type && file.type.indexOf('image/') === 0 && !/heic|heif/i.test(file.type)) {
-        preview = document.createElement('img');
-        preview.className = 'file-thumb';
-        preview.alt = '';
-
-        var url = URL.createObjectURL(file);
-        preview.src = url;
-
-        preview.addEventListener('load', function () {
-          URL.revokeObjectURL(url);
-        }, { once:true });
-
-        preview.addEventListener('error', function () {
-          URL.revokeObjectURL(url);
-
-          var fallback = document.createElement('span');
-          fallback.className = 'file-icon';
-          fallback.innerHTML = '<i class="fa-solid fa-image" aria-hidden="true"></i>';
-
-          if (preview.parentNode) {
-            preview.parentNode.replaceChild(fallback, preview);
-          }
-        }, { once:true });
-      } else {
-        preview = document.createElement('span');
-        preview.className = 'file-icon';
-        preview.innerHTML = '<i class="fa-solid fa-image" aria-hidden="true"></i>';
-      }
-
-      var meta = document.createElement('span');
-      meta.className = 'file-meta';
-
-      var name = document.createElement('span');
-      name.className = 'file-name';
-      name.textContent = file.name;
-
-      var size = document.createElement('span');
-      size.className = 'file-size';
-      size.textContent = formatSize(file.size);
-
-      meta.appendChild(name);
-      meta.appendChild(size);
-
-      var remove = document.createElement('button');
-      remove.type = 'button';
-      remove.className = 'file-remove';
-      remove.setAttribute('aria-label', 'Remove ' + file.name);
-      remove.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
-
-      remove.addEventListener('click', function () {
-        selectedFiles.splice(index, 1);
-        clearPhotoError();
-        renderFiles();
-      });
-
-      item.appendChild(preview);
-      item.appendChild(meta);
-      item.appendChild(remove);
-      photoList.appendChild(item);
-    });
-
-    photoList.hidden = selectedFiles.length === 0;
-  }
-
-  function addFiles(fileList) {
-    clearPhotoError();
-
-    var incoming = Array.prototype.slice.call(fileList || []);
-    if (!incoming.length) return;
-
-    var errors = [];
-
-    incoming.forEach(function (file) {
-      if (!isSupportedImage(file)) {
-        errors.push(file.name + ' isn’t a supported image.');
-        return;
-      }
-
-      if (file.size === 0) {
-        errors.push(file.name + ' is empty.');
-        return;
-      }
-
-      if (file.size > MAX_FILE_BYTES) {
-        errors.push(file.name + ' is over 10MB.');
-        return;
-      }
-
-      var duplicate = selectedFiles.some(function (existing) {
-        return existing.name === file.name &&
-               existing.size === file.size &&
-               existing.lastModified === file.lastModified;
-      });
-
-      if (duplicate) return;
-
-      if (selectedFiles.length >= MAX_FILES) {
-        errors.push('You can add up to ' + MAX_FILES + ' photos.');
-        return;
-      }
-
-      if (totalBytes() + file.size > MAX_TOTAL_BYTES) {
-        errors.push('The photos total more than 30MB. Please choose smaller images or fewer photos.');
-        return;
-      }
-
-      selectedFiles.push(file);
-    });
-
-    renderFiles();
-
-    if (errors.length) {
-      showPhotoError(errors.join(' '));
-    }
-  }
-
-  if (photosInput) {
-    photosInput.addEventListener('change', function () {
-      addFiles(photosInput.files);
-
-      // Allow the same file to be selected again after removal.
-      photosInput.value = '';
-    });
-  }
-
-  if (upload) {
-    ['dragenter','dragover'].forEach(function (eventName) {
-      upload.addEventListener(eventName, function (event) {
-        event.preventDefault();
-        upload.classList.add('dragover');
-      });
-    });
-
-    ['dragleave','drop'].forEach(function (eventName) {
-      upload.addEventListener(eventName, function (event) {
-        event.preventDefault();
-        upload.classList.remove('dragover');
-      });
-    });
-
-    upload.addEventListener('drop', function (event) {
-      if (event.dataTransfer && event.dataTransfer.files) {
-        addFiles(event.dataTransfer.files);
-      }
-    });
-  }
-
-  function hideAlert() {
-    alertBox.hidden = true;
-    alertText.textContent = '';
-    sendWithoutBtn.hidden = true;
-  }
-
-  function showAlert(message, focusTarget) {
+  function showError(message) {
     alertText.textContent = message;
     alertBox.hidden = false;
-
-    if (focusTarget) {
-      focusTarget.focus();
-    } else {
-      alertBox.focus();
-    }
+    alertBox.focus();
   }
 
-  function setSubmitting(isSubmitting) {
-    submitting = isSubmitting;
-    submitBtn.disabled = isSubmitting;
-    sendWithoutBtn.disabled = isSubmitting;
-    form.setAttribute('aria-busy', isSubmitting ? 'true' : 'false');
-    submitLabel.textContent = isSubmitting ? 'Sending…' : 'Send Enquiry';
-  }
-
-  function showSuccess() {
-    hideAlert();
-    form.hidden = true;
-    successBox.hidden = false;
-    successBox.focus();
-    clearPhotoError();
-  }
-
-  function clearInvalidState() {
-    Array.prototype.forEach.call(form.querySelectorAll('[aria-invalid="true"]'), function (el) {
-      el.removeAttribute('aria-invalid');
-    });
+  function hideError() {
+    alertBox.hidden = true;
+    alertText.textContent = '';
   }
 
   form.addEventListener('input', function (event) {
     event.target.removeAttribute('aria-invalid');
-
-    if (!alertBox.hidden) {
-      hideAlert();
-    }
+    hideError();
   });
 
-  async function sendEnquiry(withoutPhotos) {
-    if (submitting) return;
-
-    if (!withoutPhotos && selectedFiles.length === 0) {
-      clearPhotoError();
-    }
-
-    setSubmitting(true);
-    hideAlert();
-
-    var formData = new FormData(form);
-
-    // Append selected photos from the custom photo picker.
-    formData.delete('photos');
-
-    if (!withoutPhotos) {
-      selectedFiles.forEach(function (file) {
-        formData.append('photos', file, file.name);
-      });
-    }
-
-    var controller = new AbortController();
-    var timeout = window.setTimeout(function () {
-      controller.abort();
-    }, 90000);
-
-    try {
-      var response = await fetch(form.action, {
-        method:'POST',
-        body:formData,
-        headers:{ 'Accept':'application/json' },
-        signal:controller.signal
-      });
-
-      var data = {};
-
-      try {
-        data = await response.json();
-      } catch (err) {
-        data = {};
-      }
-
-      if (response.ok && data.ok !== false) {
-        form.reset();
-        selectedFiles = [];
-        renderFiles();
-        showSuccess();
-        return;
-      }
-
-      var message = '';
-
-      if (data && Array.isArray(data.errors) && data.errors.length) {
-        message = data.errors.map(function (item) {
-          return item.message || '';
-        }).join(' ');
-      }
-
-      if (!message && data && data.error) {
-        message = data.error;
-      }
-
-      if (/file uploads? not permitted/i.test(message)) {
-        if (!withoutPhotos) {
-          showAlert('Your photos couldn’t be attached because photo uploads aren’t available on our form right now. You can send your enquiry without photos and we’ll follow up if we need them.');
-          sendWithoutBtn.hidden = false;
-          sendWithoutBtn.focus();
-          return;
-        }
-      }
-
-      if (response.status === 429) {
-        showAlert('Too many enquiries have been sent just now. Please try again in a few minutes.');
-        return;
-      }
-
-      if (data && Array.isArray(data.errors) && data.errors.length && data.errors[0].field) {
-        var field = form.elements[data.errors[0].field];
-
-        if (field) {
-          field.setAttribute('aria-invalid', 'true');
-          showAlert('Please check your details and try again.', field);
-          return;
-        }
-      }
-
-      showAlert('Sorry, your enquiry couldn’t be sent. Please check your details and try again.');
-
-    } catch (error) {
-      if (error && error.name === 'AbortError') {
-        showAlert('That took longer than expected. Please check your connection and try again, or send your enquiry without photos.');
-      } else {
-        showAlert('Sorry, your enquiry couldn’t be sent. Please check your connection and try again.');
-      }
-
-    } finally {
-      window.clearTimeout(timeout);
-      setSubmitting(false);
-    }
-  }
-
-  form.addEventListener('submit', function (event) {
+  form.addEventListener('submit', async function (event) {
     event.preventDefault();
-    clearInvalidState();
+
+    if (submitting) return;
 
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    sendEnquiry(false);
-  });
+    submitting = true;
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Sending…';
+    form.setAttribute('aria-busy', 'true');
+    hideError();
 
-  sendWithoutBtn.addEventListener('click', function () {
-    sendEnquiry(true);
-  });
+    var controller = new AbortController();
+    var timeout = window.setTimeout(function () {
+      controller.abort();
+    }, 30000);
 
-  // Show success if returning from a non-JavaScript form submission.
-  var params = new URLSearchParams(window.location.search);
+    try {
+      var response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+        signal: controller.signal
+      });
 
-  if (params.get('sent') === '1') {
-    showSuccess();
-
-    if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, '', window.location.pathname + '#quote');
+      if (response.ok) {
+        form.reset();
+        form.hidden = true;
+        successBox.hidden = false;
+        successBox.focus();
+      } else {
+        showError('Your enquiry could not be sent. Please try again shortly.');
+      }
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        showError('The request timed out. Please check your connection and try again.');
+      } else {
+        showError('Unable to send your enquiry. Please check your internet connection and try again.');
+      }
+    } finally {
+      window.clearTimeout(timeout);
+      submitting = false;
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Send Enquiry';
+      form.setAttribute('aria-busy', 'false');
     }
-  }
+  });
+
 })();
 </script>
 
