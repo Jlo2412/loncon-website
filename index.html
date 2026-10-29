@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>LonCon | Premium Construction & Carpentry Brisbane</title>
-<meta name="description" content="LonCon - Premium construction, renovations, and carpentry in Brisbane. Licensed builder delivering high-end residential projects." />
+<title>LonCon | Brisbane Residential Construction &amp; Property Improvements</title>
+<meta name="description" content="Brisbane residential construction and property improvements — from small repairs, fencing and maintenance to renovations, decks, carports and larger builds. No job too small." />
+<link rel="canonical" href="https://www.loncon.com.au/" />
+<meta name="theme-color" content="#0b0b0c" />
 
-<!-- Fonts -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="LonCon | Residential Construction &amp; Property Improvements" />
+<meta property="og:description" content="From small repairs and maintenance to renovations and larger construction projects, LonCon helps Brisbane property owners get the job done. No job too small." />
+<meta property="og:url" content="https://www.loncon.com.au/" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>document.documentElement.classList.add('js');</script>
 
 <style>
 :root{
@@ -22,18 +33,53 @@
   --muted:rgba(255,255,255,0.65);
   --accent:#e67e22;
   --accent2:#cf6d1a;
+  --error:#ff8a80;
+  --success:#7ee2a8;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
-  font-family:Inter, sans-serif;
+  font-family:Inter,sans-serif;
   background:var(--bg);
   color:var(--text);
   overflow-x:hidden;
+  line-height:1.5;
 }
 
-/* ================= NAV ================= */
+img{max-width:100%;}
+::selection{background:rgba(230,126,34,.35);}
+
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+.skip-link{
+  position:absolute;
+  left:16px;
+  top:-60px;
+  z-index:2000;
+  padding:12px 18px;
+  border-radius:8px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  transition:top .2s;
+}
+
+.skip-link:focus{top:16px;}
+
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -42,15 +88,17 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:20px;
   z-index:1000;
   background:rgba(10,10,10,0.4);
   backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
-  transition:.3s;
+  transition:padding .3s,background .3s;
 }
 
 nav.scrolled{
-  background:rgba(10,10,10,0.85);
+  background:rgba(10,10,10,0.88);
   padding:12px 6%;
 }
 
@@ -58,103 +106,169 @@ nav.scrolled{
   font-weight:700;
   letter-spacing:2px;
   font-size:1.2rem;
+  color:var(--text);
+  text-decoration:none;
+  white-space:nowrap;
 }
 
 .logo span{color:var(--accent);}
 
-nav a{
-  color:white;
+/* BUTTONS */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:17px 40px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
   text-decoration:none;
-  font-size:.85rem;
-  letter-spacing:1px;
-  font-weight:600;
+  font-family:inherit;
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:.4px;
+  border:none;
+  cursor:pointer;
+  transition:transform .3s,background .3s,box-shadow .3s;
 }
 
-nav a:hover{color:var(--accent);}
+.btn:hover{
+  transform:translateY(-3px);
+  background:var(--accent2);
+  box-shadow:0 18px 36px rgba(0,0,0,0.38);
+}
 
-/* ================= HERO ================= */
+.btn:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:3px;
+}
+
+.btn[disabled]{
+  opacity:.62;
+  cursor:wait;
+  transform:none;
+  box-shadow:none;
+}
+
+.btn-nav{
+  padding:10px 22px;
+  font-size:.8rem;
+  letter-spacing:.8px;
+  white-space:nowrap;
+}
+
+.btn-secondary{
+  background:transparent;
+  border:1px solid var(--border);
+  font-size:.85rem;
+  padding:10px 18px;
+}
+
+.btn-secondary:hover{
+  background:rgba(255,255,255,.06);
+  border-color:var(--accent);
+  box-shadow:none;
+}
+
+/* HERO */
 .hero{
-  height:100vh;
+  min-height:100vh;
+  min-height:100svh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:0 6%;
+  padding:130px 6% 90px;
   position:relative;
-
   background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
-    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
+    linear-gradient(180deg,rgba(0,0,0,.58) 0%,rgba(0,0,0,.72) 55%,rgba(11,11,12,.96) 100%),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80") center/cover no-repeat;
+  background-color:#0b0b0c;
 }
 
-.hero-content{
-  max-width:900px;
-}
+.hero-content{max-width:900px;}
 
 .hero h1{
-  font-family:"Playfair Display", serif;
-  font-size:clamp(2.8rem,6vw,5rem);
-  line-height:1.05;
-  margin-bottom:20px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(2.35rem,5.6vw,4.6rem);
+  line-height:1.08;
+  letter-spacing:-.4px;
+  margin-bottom:22px;
+  text-wrap:balance;
 }
 
 .hero p{
-  color:var(--muted);
-  max-width:650px;
-  margin:0 auto 30px;
-  font-size:1.05rem;
+  color:rgba(255,255,255,.78);
+  max-width:680px;
+  margin:0 auto 32px;
+  font-size:clamp(1rem,1.5vw,1.1rem);
+  line-height:1.7;
+  text-wrap:pretty;
 }
 
-/* ================= BUTTON ================= */
-.btn{
-  display:inline-block;
-  padding:18px 42px;
-  border-radius:999px;
-  background:var(--accent);
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-  letter-spacing:1px;
-  transition:.3s;
-}
-
-.btn:hover{
-  transform:translateY(-4px);
-  background:var(--accent2);
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* ================= TRUST STRIP ================= */
+/* TRUST STRIP */
 .trust{
   display:flex;
   justify-content:center;
-  gap:50px;
-  padding:25px 10px;
+  align-items:center;
+  gap:18px 44px;
+  padding:22px 6%;
   background:#0f0f10;
-  font-size:.85rem;
+  border-bottom:1px solid var(--border);
+  font-size:.82rem;
+  letter-spacing:.4px;
   color:var(--muted);
   flex-wrap:wrap;
+  text-align:center;
 }
 
-/* ================= SECTIONS ================= */
+.trust div{position:relative;}
+
+.trust div + div::before{
+  content:"";
+  position:absolute;
+  left:-23px;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:var(--accent);
+  transform:translateY(-50%);
+}
+
+/* SECTIONS */
 .section{
-  padding:120px 6%;
+  padding:100px 6%;
   max-width:1200px;
   margin:auto;
 }
 
 .title{
   text-align:center;
-  font-size:2.2rem;
-  margin-bottom:60px;
-  font-family:"Playfair Display", serif;
+  font-size:clamp(1.8rem,3.5vw,2.35rem);
+  margin-bottom:16px;
+  font-family:"Playfair Display",serif;
+  line-height:1.2;
 }
 
-/* ================= GRID ================= */
+.section-intro{
+  text-align:center;
+  color:var(--muted);
+  max-width:640px;
+  margin:0 auto 46px;
+  font-size:.98rem;
+  line-height:1.7;
+}
+
+#main{scroll-margin-top:80px;}
+#quote{scroll-margin-top:86px;}
+
+/* SERVICE CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  gap:24px;
 }
 
 .card{
@@ -162,173 +276,1078 @@ nav a:hover{color:var(--accent);}
   border:1px solid var(--border);
   padding:30px;
   border-radius:18px;
-  transition:.3s;
+  transition:transform .3s,border-color .3s,background .3s;
   position:relative;
   overflow:hidden;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  border-color:var(--accent);
-  background:rgba(255,255,255,0.06);
-}
-
 .card i{
-  font-size:2rem;
+  font-size:1.9rem;
   color:var(--accent);
-  margin-bottom:15px;
+  margin-bottom:16px;
 }
 
 .card h3{
-  margin-bottom:10px;
+  font-size:1.08rem;
+  margin-bottom:9px;
+  letter-spacing:.1px;
 }
 
 .card p{
   color:var(--muted);
-  font-size:.95rem;
+  font-size:.94rem;
+  line-height:1.65;
 }
 
-/* ================= FORM ================= */
+@media(hover:hover){
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent);
+    background:rgba(255,255,255,0.06);
+  }
+}
+
+/* FORM */
 .form{
-  max-width:650px;
+  max-width:680px;
   margin:auto;
   background:var(--card);
   border:1px solid var(--border);
-  padding:40px;
+  padding:38px;
   border-radius:20px;
 }
 
-input,textarea{
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 16px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:16px;
+  min-width:0;
+}
+
+.field-full{grid-column:1 / -1;}
+
+label{
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.3px;
+  color:rgba(255,255,255,.9);
+  margin-bottom:7px;
+}
+
+.req{
+  color:var(--accent);
+  font-weight:700;
+  margin-left:2px;
+}
+
+.optional{
+  color:var(--muted);
+  font-weight:400;
+  margin-left:4px;
+}
+
+input,textarea,select{
   width:100%;
-  padding:14px;
-  margin-bottom:15px;
+  padding:14px 15px;
   border-radius:10px;
   border:1px solid var(--border);
-  background:transparent;
+  background:rgba(255,255,255,.03);
   color:white;
   font-family:inherit;
+  font-size:16px;
+  line-height:1.4;
+  transition:border-color .2s,background .2s,box-shadow .2s;
 }
 
-input:focus,textarea:focus{
+input::placeholder,textarea::placeholder{
+  color:rgba(255,255,255,.34);
+}
+
+input:focus,textarea:focus,select:focus{
   outline:none;
   border-color:var(--accent);
+  background:rgba(255,255,255,.05);
+  box-shadow:0 0 0 3px rgba(230,126,34,.15);
 }
 
-/* ================= FOOTER ================= */
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"]{
+  border-color:var(--error);
+}
+
+textarea{
+  resize:vertical;
+  min-height:124px;
+}
+
+select{
+  appearance:none;
+  -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23e67e22' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 15px center;
+  padding-right:40px;
+  cursor:pointer;
+}
+
+select option{background:#151517;color:#fff;}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#fff;
+  -webkit-box-shadow:0 0 0 1000px #171719 inset;
+  caret-color:#fff;
+  transition:background-color 9999s ease-in-out 0s;
+}
+
+/* PHOTO UPLOAD */
+.upload{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:22px 16px;
+  border:1px dashed rgba(255,255,255,.2);
+  border-radius:12px;
+  background:rgba(255,255,255,.02);
+  text-align:center;
+  cursor:pointer;
+  transition:border-color .2s,background .2s;
+}
+
+.upload:hover,.upload.dragover{
+  border-color:var(--accent);
+  background:rgba(230,126,34,.06);
+}
+
+.upload:focus-within{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+
+.file-input{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+.upload-icon{
+  font-size:1.35rem;
+  color:var(--accent);
+  margin-bottom:2px;
+  pointer-events:none;
+}
+
+.upload-title{
+  font-size:.94rem;
+  font-weight:600;
+  pointer-events:none;
+}
+
+.upload-hint{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+  pointer-events:none;
+}
+
+.file-list{
+  list-style:none;
+  display:grid;
+  gap:8px;
+  margin-top:10px;
+}
+
+.file-list[hidden]{display:none;}
+
+.file-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:rgba(255,255,255,.03);
+}
+
+.file-thumb,.file-icon{
+  width:38px;
+  height:38px;
+  border-radius:7px;
+  flex:0 0 auto;
+  background:#1a1a1c;
+}
+
+.file-thumb{object-fit:cover;}
+
+.file-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--accent);
+  font-size:.95rem;
+}
+
+.file-meta{
+  min-width:0;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.file-name{
+  font-size:.8rem;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.file-size{
+  font-size:.72rem;
+  color:var(--muted);
+}
+
+.file-remove{
+  width:32px;
+  height:32px;
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  border-radius:50%;
+  background:transparent;
+  color:var(--muted);
+  font-size:1.05rem;
+  cursor:pointer;
+  transition:color .2s,background .2s;
+}
+
+.file-remove:hover{
+  color:#fff;
+  background:rgba(255,255,255,.08);
+}
+
+.file-remove:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:1px;
+}
+
+.field-error{
+  color:var(--error);
+  font-size:.78rem;
+  line-height:1.5;
+  margin-top:6px;
+}
+
+.field-error:empty{display:none;}
+
+.form-note{
+  color:var(--muted);
+  font-size:.76rem;
+  line-height:1.55;
+  margin-top:12px;
+  text-align:center;
+}
+
+.form .btn{
+  width:100%;
+  margin-top:6px;
+}
+
+/* FORM ALERTS AND SUCCESS */
+.form-alert{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+  padding:14px 16px;
+  margin-bottom:18px;
+  border:1px solid rgba(255,138,128,.35);
+  background:rgba(255,138,128,.08);
+  border-radius:12px;
+}
+
+.form-alert[hidden]{display:none;}
+
+.form-alert p{
+  color:#ffd9d5;
+  font-size:.88rem;
+  line-height:1.55;
+}
+
+.form-alert:focus{outline:none;}
+
+.form-success{
+  text-align:center;
+  padding:38px 22px;
+  border:1px solid rgba(126,226,168,.3);
+  background:rgba(126,226,168,.06);
+  border-radius:16px;
+}
+
+.form-success[hidden]{display:none;}
+.form-success:focus{outline:none;}
+
+.success-icon{
+  width:56px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 18px;
+  border-radius:50%;
+  background:rgba(126,226,168,.12);
+  color:var(--success);
+  font-size:1.4rem;
+}
+
+.form-success h3{
+  font-family:"Playfair Display",serif;
+  font-size:1.35rem;
+  margin-bottom:8px;
+}
+
+.form-success p{
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.65;
+  max-width:440px;
+  margin:0 auto;
+}
+
+.reassure{
+  text-align:center;
+  color:var(--muted);
+  font-size:.82rem;
+  letter-spacing:.2px;
+  margin-top:22px;
+}
+
+.reassure span{
+  color:var(--accent);
+  padding:0 7px;
+}
+
+/* FOOTER */
 footer{
   text-align:center;
-  padding:50px;
+  padding:42px 6%;
   color:var(--muted);
   border-top:1px solid var(--border);
-  font-size:.85rem;
+  font-size:.82rem;
+  line-height:1.9;
 }
 
-/* ================= ANIMATION ================= */
-.reveal{
+.footer-brand{
+  color:var(--text);
+  font-weight:600;
+  letter-spacing:.5px;
+  margin-bottom:2px;
+}
+
+.footer-meta{font-size:.76rem;}
+
+footer a{
+  color:inherit;
+  text-decoration:none;
+}
+
+footer a:hover{
+  color:var(--accent);
+  text-decoration:underline;
+}
+
+/* ANIMATION */
+.js .reveal{
   opacity:0;
   transform:translateY(25px);
-  transition:1s;
+  transition:opacity .8s ease,transform .8s ease;
 }
 
-.reveal.active{
+.js .reveal.active{
   opacity:1;
   transform:none;
 }
 
-/* ================= MOBILE ================= */
+/* RESPONSIVE */
 @media(max-width:768px){
-  .hero h1{font-size:2.5rem;}
-  .trust{gap:20px;}
+  nav{padding:14px 5%;}
+  nav.scrolled{padding:10px 5%;}
+  .btn-nav{padding:9px 16px;font-size:.72rem;letter-spacing:.6px;}
+
+  .hero{
+    min-height:92svh;
+    padding:108px 5% 70px;
+  }
+
+  .hero h1{font-size:clamp(2.05rem,8.4vw,2.75rem);}
+  .hero p{font-size:.97rem;line-height:1.65;margin-bottom:28px;}
+  .hero .btn{width:100%;max-width:320px;}
+
+  .trust{
+    gap:10px 22px;
+    padding:18px 5%;
+    font-size:.75rem;
+  }
+
+  .trust div + div::before{display:none;}
+
+  .section{padding:68px 5%;}
+  .title{font-size:1.75rem;margin-bottom:12px;}
+  .section-intro{margin-bottom:34px;font-size:.93rem;}
+
+  .grid{grid-template-columns:1fr;gap:16px;}
+  .card{padding:24px;}
+
+  .form{padding:24px 18px;border-radius:16px;}
+  .form-grid{grid-template-columns:1fr;}
+  .field-full{grid-column:auto;}
+
+  .reassure{font-size:.76rem;line-height:1.8;}
+  .reassure span{padding:0 4px;}
+
+  footer{padding:34px 5%;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .js .reveal{opacity:1;transform:none;}
+  .card:hover{transform:none;}
+  .btn:hover{transform:none;}
 }
 </style>
+
+<noscript>
+<style>
+  .file-input{
+    position:static !important;
+    width:100% !important;
+    height:auto !important;
+    padding:12px !important;
+    margin:8px 0 0 !important;
+    clip:auto !important;
+    overflow:visible !important;
+    white-space:normal !important;
+    border:1px solid rgba(255,255,255,.08) !important;
+  }
+
+  .upload-hint{
+    display:block;
+    margin-top:8px;
+  }
+</style>
+</noscript>
 </head>
 
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <!-- NAV -->
-<nav id="nav">
-  <div class="logo">Lon<span>Con</span></div>
-  <a href="#quote">GET A QUOTE</a>
+<nav id="nav" aria-label="Main navigation">
+  <a class="logo" href="#top" aria-label="LonCon home">Lon<span>Con</span></a>
+  <a class="btn btn-nav" href="#quote">Request Quote</a>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
+<header class="hero" id="top">
   <div class="hero-content">
-    <h1>Building Brisbane’s Premium Homes & Spaces</h1>
-    <p>Renovations, custom carpentry, and outdoor living solutions crafted with precision and care.</p>
-    <a class="btn" href="#quote">Start Your Project</a>
+    <h1>Residential Construction &amp; Property Improvements</h1>
+    <p>From small repairs and maintenance to renovations and larger construction projects, LonCon helps Brisbane property owners get the job done. Whether it’s a fence repair, new door hardware, a quick cosmetic upgrade or getting a property ready for sale, no job is too small.</p>
+    <a class="btn" href="#quote">Request Quote</a>
   </div>
 </header>
 
-<!-- TRUST -->
-<div class="trust">
-  <div>QBCC Licensed</div>
-  <div>Fully Insured</div>
-  <div>10+ Years Experience</div>
-  <div>Brisbane Based</div>
-</div>
+<main id="main">
 
-<!-- SERVICES -->
-<section class="section reveal">
-  <h2 class="title">What We Build</h2>
-
-  <div class="grid">
-    <div class="card">
-      <i class="fa-solid fa-house"></i>
-      <h3>Renovations</h3>
-      <p>High-end residential upgrades designed for modern living.</p>
-    </div>
-
-    <div class="card">
-      <i class="fa-solid fa-hammer"></i>
-      <h3>Custom Carpentry</h3>
-      <p>Precision timber work, feature walls, and architectural detailing.</p>
-    </div>
-
-    <div class="card">
-      <i class="fa-solid fa-tree"></i>
-      <h3>Outdoor Living</h3>
-      <p>Decks, patios, and outdoor entertaining spaces built to last.</p>
-    </div>
+  <!-- TRUST -->
+  <div class="trust" aria-label="Why choose LonCon">
+    <div>QBCC Licensed</div>
+    <div>Fully Insured</div>
+    <div>15 Years Experience</div>
+    <div>Brisbane Based</div>
   </div>
-</section>
 
-<!-- QUOTE -->
-<section class="section reveal" id="quote">
-  <h2 class="title">Start Your Project</h2>
+  <!-- SERVICES -->
+  <section class="section reveal" id="services" aria-labelledby="services-title">
+    <h2 class="title" id="services-title">What We Do</h2>
+    <p class="section-intro">From a small repair to a full renovation, we take on residential work of all sizes across Brisbane.</p>
 
-  <div class="form">
-    <form action="https://formspree.io/f/xanbzwla" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-      <button class="btn" style="width:100%; border:none; cursor:pointer;">Send Enquiry</button>
-    </form>
-  </div>
-</section>
+    <div class="grid">
+      <article class="card">
+        <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+        <h3>Repairs &amp; Maintenance</h3>
+        <p>Fencing, gates, doors, door hardware and general maintenance. No job too small.</p>
+      </article>
+
+      <article class="card">
+        <i class="fa-solid fa-paint-roller" aria-hidden="true"></i>
+        <h3>Property Improvements</h3>
+        <p>Cosmetic upgrades and practical improvements to get a property ready for sale or rental.</p>
+      </article>
+
+      <article class="card">
+        <i class="fa-solid fa-house-chimney" aria-hidden="true"></i>
+        <h3>Renovations &amp; Construction</h3>
+        <p>Larger renovations, decks, carports and residential construction, built to last.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="section reveal" id="quote" aria-labelledby="quote-title">
+    <h2 class="title" id="quote-title">Request a Quote</h2>
+    <p class="section-intro">Tell us a little about the job and add photos if you have them. We’ll get back to you to talk through the next steps.</p>
+
+    <!-- Formspree endpoint: https://formspree.io/f/xanbzwla. Set and verify admin@loncon.com.au as the notification recipient in the Formspree dashboard. Photo attachments require file uploads to be enabled for this form; if unavailable, the form offers a text-only retry. -->
+    <div class="form">
+      <form id="quote-form"
+            action="https://formspree.io/f/xanbzwla"
+            method="POST"
+            enctype="multipart/form-data"
+            aria-describedby="form-note">
+
+        <div class="form-alert" id="form-alert" role="alert" tabindex="-1" hidden>
+          <p id="form-alert-text"></p>
+          <button type="button" class="btn btn-secondary" id="send-without-photos" hidden>Send without photos</button>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" maxlength="100" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" maxlength="254" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. 0400 000 000" maxlength="30" required>
+          </div>
+
+          <div class="field">
+            <label for="location">Property suburb or postcode <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="location" name="location" autocomplete="address-level2" placeholder="e.g. Camp Hill 4152" maxlength="80" required>
+          </div>
+
+          <div class="field field-full">
+            <label for="message">Description of the work <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="A short description of the work — e.g. repair a side fence, replace door hardware, update a bathroom." maxlength="2000" required></textarea>
+          </div>
+
+          <div class="field field-full">
+            <label for="timeframe">Preferred timeframe <span class="optional">Optional</span></label>
+            <select id="timeframe" name="timeframe">
+              <option value="">No preference</option>
+              <option value="As soon as possible">As soon as possible</option>
+              <option value="Within 2 weeks">Within 2 weeks</option>
+              <option value="Within 1–3 months">Within 1–3 months</option>
+              <option value="3+ months">3+ months</option>
+            </select>
+          </div>
+
+          <div class="field field-full">
+            <label for="photos">Photos <span class="optional">Optional</span></label>
+
+            <label class="upload" id="upload" for="photos">
+              <input class="file-input"
+                     type="file"
+                     id="photos"
+                     name="photos"
+                     accept="image/*"
+                     multiple
+                     aria-describedby="photos-help">
+              <span class="upload-icon" aria-hidden="true"><i class="fa-solid fa-camera"></i></span>
+              <span class="upload-title">Add photos</span>
+              <span class="upload-hint" id="photos-help">Up to 5 photos, 10MB each (30MB total). Photos help us quote accurately.</span>
+            </label>
+
+            <ul class="file-list" id="photo-list" aria-label="Selected photos" hidden></ul>
+            <p class="field-error" id="photos-error" role="alert"></p>
+          </div>
+        </div>
+
+        <!-- Spam prevention -->
+        <div class="sr-only" aria-hidden="true">
+          <label for="_gotcha">Leave this field empty</label>
+          <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+
+        <input type="hidden" name="_subject" value="New quote enquiry — LonCon website">
+
+        <button class="btn" type="submit" id="submit-btn">
+          <span id="submit-label">Send Enquiry</span>
+        </button>
+
+        <p class="form-note" id="form-note">We’ll only use your details and photos to respond to your enquiry.</p>
+      </form>
+
+      <div class="form-success" id="form-success" role="status" tabindex="-1" hidden>
+        <div class="success-icon" aria-hidden="true"><i class="fa-solid fa-check"></i></div>
+        <h3>Thanks — your request is on its way.</h3>
+        <p>We’ll be in touch shortly to talk through the job. If we need more detail, we’ll ask.</p>
+      </div>
+    </div>
+
+    <p class="reassure">Reliable workmanship <span>·</span> Clear communication <span>·</span> Quick turnarounds where possible</p>
+  </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
-  © 2026 LonCon Construction | Brisbane, QLD
+  <p class="footer-brand">LonCon Construction</p>
+  <p>Brisbane, QLD · QBCC Licensed · Fully Insured</p>
+  <p><a href="mailto:admin@loncon.com.au">admin@loncon.com.au</a></p>
+  <p class="footer-meta">© 2026 LonCon Construction · No job too small.</p>
 </footer>
 
 <script>
-// NAV SCROLL
-window.addEventListener("scroll", () => {
-  document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 50);
-});
+(function () {
+  'use strict';
 
-// REVEAL
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
+  /* NAV SCROLL STATE */
+  var nav = document.getElementById('nav');
+
+  if (nav) {
+    var onScroll = function () {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+  }
+
+  /* REVEAL ON SCROLL */
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.08 });
+
+    revealEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add('active');
+    });
+  }
+
+  /* QUOTE FORM */
+  var form = document.getElementById('quote-form');
+  if (!form) return;
+
+  var photosInput = document.getElementById('photos');
+  var photoList = document.getElementById('photo-list');
+  var photosError = document.getElementById('photos-error');
+  var upload = document.getElementById('upload');
+  var alertBox = document.getElementById('form-alert');
+  var alertText = document.getElementById('form-alert-text');
+  var sendWithoutBtn = document.getElementById('send-without-photos');
+  var successBox = document.getElementById('form-success');
+  var submitBtn = document.getElementById('submit-btn');
+  var submitLabel = document.getElementById('submit-label');
+
+  var MAX_FILES = 5;
+  var MAX_FILE_BYTES = 10 * 1024 * 1024;
+  var MAX_TOTAL_BYTES = 30 * 1024 * 1024;
+  var selectedFiles = [];
+  var submitting = false;
+
+  function formatSize(bytes) {
+    if (bytes < 1024 * 1024) {
+      return Math.max(1, Math.round(bytes / 1024)) + ' KB';
+    }
+
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+  }
+
+  function isSupportedImage(file) {
+    var type = (file.type || '').toLowerCase();
+
+    if (type === 'image/svg+xml') return false;
+    if (type && type.indexOf('image/') === 0) return true;
+
+    return /\.(jpe?g|png|webp|gif|heic|heif|avif)$/i.test(file.name || '');
+  }
+
+  function totalBytes() {
+    return selectedFiles.reduce(function (sum, file) {
+      return sum + file.size;
+    }, 0);
+  }
+
+  function showPhotoError(message) {
+    photosError.textContent = message || '';
+  }
+
+  function clearPhotoError() {
+    showPhotoError('');
+  }
+
+  function renderFiles() {
+    photoList.textContent = '';
+
+    selectedFiles.forEach(function (file, index) {
+      var item = document.createElement('li');
+      item.className = 'file-item';
+
+      var preview;
+
+      if (file.type && file.type.indexOf('image/') === 0 && !/heic|heif/i.test(file.type)) {
+        preview = document.createElement('img');
+        preview.className = 'file-thumb';
+        preview.alt = '';
+
+        var url = URL.createObjectURL(file);
+        preview.src = url;
+
+        preview.addEventListener('load', function () {
+          URL.revokeObjectURL(url);
+        }, { once:true });
+
+        preview.addEventListener('error', function () {
+          URL.revokeObjectURL(url);
+
+          var fallback = document.createElement('span');
+          fallback.className = 'file-icon';
+          fallback.innerHTML = '<i class="fa-solid fa-image" aria-hidden="true"></i>';
+
+          if (preview.parentNode) {
+            preview.parentNode.replaceChild(fallback, preview);
+          }
+        }, { once:true });
+      } else {
+        preview = document.createElement('span');
+        preview.className = 'file-icon';
+        preview.innerHTML = '<i class="fa-solid fa-image" aria-hidden="true"></i>';
+      }
+
+      var meta = document.createElement('span');
+      meta.className = 'file-meta';
+
+      var name = document.createElement('span');
+      name.className = 'file-name';
+      name.textContent = file.name;
+
+      var size = document.createElement('span');
+      size.className = 'file-size';
+      size.textContent = formatSize(file.size);
+
+      meta.appendChild(name);
+      meta.appendChild(size);
+
+      var remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'file-remove';
+      remove.setAttribute('aria-label', 'Remove ' + file.name);
+      remove.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+
+      remove.addEventListener('click', function () {
+        selectedFiles.splice(index, 1);
+        clearPhotoError();
+        renderFiles();
+      });
+
+      item.appendChild(preview);
+      item.appendChild(meta);
+      item.appendChild(remove);
+      photoList.appendChild(item);
+    });
+
+    photoList.hidden = selectedFiles.length === 0;
+  }
+
+  function addFiles(fileList) {
+    clearPhotoError();
+
+    var incoming = Array.prototype.slice.call(fileList || []);
+    if (!incoming.length) return;
+
+    var errors = [];
+
+    incoming.forEach(function (file) {
+      if (!isSupportedImage(file)) {
+        errors.push(file.name + ' isn’t a supported image.');
+        return;
+      }
+
+      if (file.size === 0) {
+        errors.push(file.name + ' is empty.');
+        return;
+      }
+
+      if (file.size > MAX_FILE_BYTES) {
+        errors.push(file.name + ' is over 10MB.');
+        return;
+      }
+
+      var duplicate = selectedFiles.some(function (existing) {
+        return existing.name === file.name &&
+               existing.size === file.size &&
+               existing.lastModified === file.lastModified;
+      });
+
+      if (duplicate) return;
+
+      if (selectedFiles.length >= MAX_FILES) {
+        errors.push('You can add up to ' + MAX_FILES + ' photos.');
+        return;
+      }
+
+      if (totalBytes() + file.size > MAX_TOTAL_BYTES) {
+        errors.push('The photos total more than 30MB. Please choose smaller images or fewer photos.');
+        return;
+      }
+
+      selectedFiles.push(file);
+    });
+
+    renderFiles();
+
+    if (errors.length) {
+      showPhotoError(errors.join(' '));
+    }
+  }
+
+  if (photosInput) {
+    photosInput.addEventListener('change', function () {
+      addFiles(photosInput.files);
+
+      // Allow the same file to be selected again after removal.
+      photosInput.value = '';
+    });
+  }
+
+  if (upload) {
+    ['dragenter','dragover'].forEach(function (eventName) {
+      upload.addEventListener(eventName, function (event) {
+        event.preventDefault();
+        upload.classList.add('dragover');
+      });
+    });
+
+    ['dragleave','drop'].forEach(function (eventName) {
+      upload.addEventListener(eventName, function (event) {
+        event.preventDefault();
+        upload.classList.remove('dragover');
+      });
+    });
+
+    upload.addEventListener('drop', function (event) {
+      if (event.dataTransfer && event.dataTransfer.files) {
+        addFiles(event.dataTransfer.files);
+      }
+    });
+  }
+
+  function hideAlert() {
+    alertBox.hidden = true;
+    alertText.textContent = '';
+    sendWithoutBtn.hidden = true;
+  }
+
+  function showAlert(message, focusTarget) {
+    alertText.textContent = message;
+    alertBox.hidden = false;
+
+    if (focusTarget) {
+      focusTarget.focus();
+    } else {
+      alertBox.focus();
+    }
+  }
+
+  function setSubmitting(isSubmitting) {
+    submitting = isSubmitting;
+    submitBtn.disabled = isSubmitting;
+    sendWithoutBtn.disabled = isSubmitting;
+    form.setAttribute('aria-busy', isSubmitting ? 'true' : 'false');
+    submitLabel.textContent = isSubmitting ? 'Sending…' : 'Send Enquiry';
+  }
+
+  function showSuccess() {
+    hideAlert();
+    form.hidden = true;
+    successBox.hidden = false;
+    successBox.focus();
+    clearPhotoError();
+  }
+
+  function clearInvalidState() {
+    Array.prototype.forEach.call(form.querySelectorAll('[aria-invalid="true"]'), function (el) {
+      el.removeAttribute('aria-invalid');
+    });
+  }
+
+  form.addEventListener('input', function (event) {
+    event.target.removeAttribute('aria-invalid');
+
+    if (!alertBox.hidden) {
+      hideAlert();
     }
   });
-}, { threshold: 0.15 });
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  async function sendEnquiry(withoutPhotos) {
+    if (submitting) return;
+
+    if (!withoutPhotos && selectedFiles.length === 0) {
+      clearPhotoError();
+    }
+
+    setSubmitting(true);
+    hideAlert();
+
+    var formData = new FormData(form);
+
+    // Append selected photos from the custom photo picker.
+    formData.delete('photos');
+
+    if (!withoutPhotos) {
+      selectedFiles.forEach(function (file) {
+        formData.append('photos', file, file.name);
+      });
+    }
+
+    var controller = new AbortController();
+    var timeout = window.setTimeout(function () {
+      controller.abort();
+    }, 90000);
+
+    try {
+      var response = await fetch(form.action, {
+        method:'POST',
+        body:formData,
+        headers:{ 'Accept':'application/json' },
+        signal:controller.signal
+      });
+
+      var data = {};
+
+      try {
+        data = await response.json();
+      } catch (err) {
+        data = {};
+      }
+
+      if (response.ok && data.ok !== false) {
+        form.reset();
+        selectedFiles = [];
+        renderFiles();
+        showSuccess();
+        return;
+      }
+
+      var message = '';
+
+      if (data && Array.isArray(data.errors) && data.errors.length) {
+        message = data.errors.map(function (item) {
+          return item.message || '';
+        }).join(' ');
+      }
+
+      if (!message && data && data.error) {
+        message = data.error;
+      }
+
+      if (/file uploads? not permitted/i.test(message)) {
+        if (!withoutPhotos) {
+          showAlert('Your photos couldn’t be attached because photo uploads aren’t available on our form right now. You can send your enquiry without photos and we’ll follow up if we need them.');
+          sendWithoutBtn.hidden = false;
+          sendWithoutBtn.focus();
+          return;
+        }
+      }
+
+      if (response.status === 429) {
+        showAlert('Too many enquiries have been sent just now. Please try again in a few minutes.');
+        return;
+      }
+
+      if (data && Array.isArray(data.errors) && data.errors.length && data.errors[0].field) {
+        var field = form.elements[data.errors[0].field];
+
+        if (field) {
+          field.setAttribute('aria-invalid', 'true');
+          showAlert('Please check your details and try again.', field);
+          return;
+        }
+      }
+
+      showAlert('Sorry, your enquiry couldn’t be sent. Please check your details and try again.');
+
+    } catch (error) {
+      if (error && error.name === 'AbortError') {
+        showAlert('That took longer than expected. Please check your connection and try again, or send your enquiry without photos.');
+      } else {
+        showAlert('Sorry, your enquiry couldn’t be sent. Please check your connection and try again.');
+      }
+
+    } finally {
+      window.clearTimeout(timeout);
+      setSubmitting(false);
+    }
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    clearInvalidState();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    sendEnquiry(false);
+  });
+
+  sendWithoutBtn.addEventListener('click', function () {
+    sendEnquiry(true);
+  });
+
+  // Show success if returning from a non-JavaScript form submission.
+  var params = new URLSearchParams(window.location.search);
+
+  if (params.get('sent') === '1') {
+    showSuccess();
+
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + '#quote');
+    }
+  }
+})();
 </script>
 
 </body>
